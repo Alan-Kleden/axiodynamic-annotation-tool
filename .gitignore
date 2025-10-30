@@ -1,0 +1,146 @@
+# ==========================================
+# Axiodynamic Annotation Tool - .gitignore
+# ==========================================
+
+# ============================================
+# FICHIERS SENSIBLES (NE JAMAIS COMMITER)
+# ============================================
+
+# Configuration avec mots de passe
+.htaccess
+.env
+config.php
+*_config.php
+
+# Logs de debug
+*.log
+debug*.log
+debug_*.log
+api/debug*.log
+
+# Certificats générés (données personnelles)
+certificates/
+certificates/*.pdf
+certificate_*.pdf
+
+# Images personnelles
+Signature_*.jpg
+Signature_*.png
+Logo.jpg
+Logo.png
+
+# ============================================
+# DONNÉES UTILISATEUR
+# ============================================
+
+# Annotations enregistrées (données de recherche)
+annotations/
+annotations/*.json
+annotation_data_*.json
+
+# Uploads utilisateurs
+uploads/
+user-data/
+
+# ============================================
+# ENVIRONNEMENTS & DÉPENDANCES
+# ============================================
+
+# Node
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+package-lock.json
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+venv/
+ENV/
+env/
+.venv/
+
+# PHP Composer
+/vendor/
+composer.lock
+
+# ============================================
+# FICHIERS SYSTÈME
+# ============================================
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+._*
+
+# Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+
+# Linux
+*~
+.directory
+
+# ============================================
+# IDE / ÉDITEURS
+# ============================================
+
+# VSCode
+.vscode/
+*.code-workspace
+
+# JetBrains (PHPStorm, WebStorm, etc.)
+.idea/
+*.iml
+*.iws
+
+# Sublime Text
+*.sublime-project
+*.sublime-workspace
+
+# Vim
+[._]*.s[a-v][a-z]
+[._]*.sw[a-p]
+[._]s[a-rt-v][a-z]
+[._]ss[a-gi-z]
+[._]sw[a-p]
+
+# ============================================
+# BACKUPS & TEMPORAIRES
+# ============================================
+
+*.bak
+*.backup
+*.old
+*.tmp
+*.temp
+*~
+.#*
+
+# Archives
+*.zip
+*.tar.gz
+*.rar
+
+# ============================================
+# TESTS & DÉVELOPPEMENT
+# ============================================
+
+test.php
+test_*.php
+demo/
+sandbox/
+
+# ============================================
+# NOTES
+# ============================================
+
+# Si vous voulez commiter logo.png ou signature (versions publiques),
+# créez des versions distinctes et ajustez ce fichier

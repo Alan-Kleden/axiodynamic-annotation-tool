@@ -1,7 +1,11 @@
 # Axiodynamic Annotation Tool
 
 <div align="center">
+# Axiodynamic Annotation Tool
 
+<div align="center">
+
+![Screenshot](docs/screenshot.png)
 [![Status](https://img.shields.io/badge/status-production-brightgreen)]()
 [![Demo](https://img.shields.io/badge/demo-live-blue)](https://alankleden.com/annotation-tool-multilingual/)
 [![Languages](https://img.shields.io/badge/languages-FR%20|%20EN%20|%20ES%20|%20ZH-orange)]()

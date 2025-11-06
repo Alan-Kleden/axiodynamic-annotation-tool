@@ -1,0 +1,27 @@
+DEL file Build-Delivery.ps1
+DEL file project-src.zip
+DEL file setup-git-fixed.ps1
+DEL file setup-git.ps1
+DEL file _backups\backup_20251026_122025\audit_annotation_tool.ps1
+DEL file _backups\backup_20251026_122025\sync_annotation_tool.ps1
+COPY index.html
+COPY app.js
+COPY i18n.js
+COPY EN_data.js
+COPY FR_data.js
+COPY ES_data.js
+COPY ZH_data.js
+COPY app.css
+COPY favicon.ico
+COPY README.md
+COPY LICENSE
+COPY DEPLOY.md
+COPY DEBUG_CHECKLIST.md
+COPY data\codebook_v1.json
+COPY cgu\cgu_fr.html
+COPY cgu\cgu_en.html
+COPY cgu\cgu_es.html
+COPY cgu\cgu_zh.html
+ADD .gitattributes
+--- SUMMARY ---
+Missing: favicon.png

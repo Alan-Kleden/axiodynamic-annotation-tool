@@ -1,17 +1,14 @@
-# Axiodynamic Annotation Tool
-
-<div align="center">
-# Axiodynamic Annotation Tool
-
-<div align="center">
+# Axiodynamic Annotation Tool ![audit](https://github.com/Alan-Kleden/axiodynamic-annotation-tool/actions/workflows/audit.yml/badge.svg)
 
 ![Screenshot](docs/screenshot.png)
-[![Status](https://img.shields.io/badge/status-production-brightgreen)]()
+
+![Status](https://img.shields.io/badge/status-production-brightgreen)
 [![Demo](https://img.shields.io/badge/demo-live-blue)](https://alankleden.com/annotation-tool-multilingual/)
-[![Languages](https://img.shields.io/badge/languages-FR%20|%20EN%20|%20ES%20|%20ZH-orange)]()
+![Languages](https://img.shields.io/badge/languages-FR%20|%20EN%20|%20ES%20|%20ZH-orange)
 [![OSF](https://img.shields.io/badge/OSF-rm42h-blue)](https://osf.io/rm42h)
 [![License](https://img.shields.io/badge/license-CC--BY--4.0-lightgrey)](LICENSE)
 [![GitHub stars](https://img.shields.io/github/stars/Alan-Kleden/axiodynamic-annotation-tool?style=social)](https://github.com/Alan-Kleden/axiodynamic-annotation-tool)
+
 
 **Multilingual web application for annotating institutional discourse with axiodynamic metrics**
 

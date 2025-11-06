@@ -8,7 +8,16 @@ $html = Get-Content $index -Raw -Encoding UTF8
 # extraire refs internes (href/src) et ignorer http(s)
 $refs = @([regex]::Matches($html,'(src|href)="([^"]+)"') | ForEach-Object { $_.Groups[2].Value }) |
         ForEach-Object { ($_ -split '\?')[0] } | Sort-Object -Unique
-$internal = @($refs | Where-Object { $_ -notmatch '^(https?:)?//' })
+
+$internal = @(
+  $refs | Where-Object {
+    $_ -notmatch '^(https?:)?//' -and
+    $_ -notmatch '^(mailto:|tel:|javascript:)' -and
+    $_ -notmatch '^#' -and
+    $_ -ne '#'
+  }
+)
+
 $missing  = @($internal | Where-Object { -not (Test-Path (Join-Path $Root $_)) })
 
 # rapport

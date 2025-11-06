@@ -1,0 +1,20 @@
+COPY index.html
+COPY app.js
+COPY i18n.js
+COPY EN_data.js
+COPY FR_data.js
+COPY ES_data.js
+COPY ZH_data.js
+COPY app.css
+COPY favicon.ico
+COPY README.md
+COPY LICENSE
+COPY DEPLOY.md
+COPY DEBUG_CHECKLIST.md
+COPY data\codebook_v1.json
+COPY cgu\cgu_fr.html
+COPY cgu\cgu_en.html
+COPY cgu\cgu_es.html
+COPY cgu\cgu_zh.html
+--- SUMMARY ---
+Missing: 

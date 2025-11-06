@@ -3,15 +3,45 @@
 
 window.translations = {
     en: {
+        validate_quiz: "Submit quiz",
+        retry_quiz: "Retake quiz",
         // Language selector
         languageLabel: "Language",
+        // >>> ADDED: quiz.* labels
+        "quiz.title":"🎯 Quiz Codebook",
+        "quiz.instructions":"Evaluate <strong>Fc</strong> and <strong>Fi</strong> for each mini-text.",
+        "quiz.reminder":"Reminder: if the <em>telos</em> is explicitly blocked, <strong>Fi</strong> cannot be very low.",
+        "quiz.qnum":"Q",
+        "quiz.telos":"Telos",
+        "quiz.explicit":"Explicit telos",
+        "quiz.textual_indices":"Textual cues",
+        "quiz.pro_action":"Pro-action (Fc)",
+        "quiz.block":"Block (Fi)",
+        "quiz.fc":"Fc",
+        "quiz.fi":"Fi",
+        "quiz.item_score":"Item score",
+        "quiz.you":"You",
+        "quiz.expected_relation":"Expected relation",
+        "quiz.your_relation":"Your relation",
+        "quiz.dev_expected":"Expected",
+        "quiz.hint_separate":"Hint: separate Fc and Fi by at least",
+        "quiz.hint_points":"points in the correct direction.",
+        "quiz.global_score":"Global score",
         
         // Welcome Screen
         welcomeTitle: "🙏 Thank you for participating in this study!",
-        welcomeIntro: "You will contribute to research in <strong>axiodynamic analysis</strong> on institutional discourse. Your task is to evaluate <strong>12 text excerpts</strong> (original texts in English, translated for non-English speakers) from British and American authors and institutions.",
+        welcomeIntro: "You will contribute to research in <strong>axiodynamic analysis</strong> on institutional discourse. Your task is to evaluate <strong>12 text excerpts</strong> (translated texts) from various authors and institutions.",
         welcomeInstructions: "For each excerpt, you will need to evaluate two dimensions on a scale of 0 to 5 stars:",
         
         instructionsTitle: "📋 Instructions",
+        explicitTelos: "Explicit telos",           // en
+        textCues: "Textual cues",
+        proAction: "Pro-action (Fc)",
+        blockage: "Blockage (Fi)",
+        fcShort: "Fc :",
+        fiShort: "Fi :",
+        quizCodebookTitle: "🎯 Quiz Codebook",
+        quizReminder: "Reminder: if the telos is explicitly blocked, Fi should not be very low.",
         
         fcLabel: "Fc (Conative force)",
         fcQuestion: "To what extent does the text AFFIRM a will to act towards the displayed objective?",
@@ -41,7 +71,9 @@ window.translations = {
         videoButton: "🎥 Understanding Axiodynamics (Video)",
         
         startButton: "Start Annotation",
-        
+        continueSession: "Resume your previous session?",   // ← AJOUT       home: "Home",
+        redoQuiz: "Retake quiz",
+
         // Annotation Screen
         progress: "Progress",
         of: "of",
@@ -96,21 +128,53 @@ window.translations = {
         researcherInfo: "Researcher: Alan Kleden",
         
         // PDF and Video links (will be used dynamically)
-        pdfLink: "docs/EN_ANNOTATION_GUIDELINES_v3.1.pdf",
+        pdfLink: "docs/EN_ANNOTATION_GUIDELINES_v3.4.pdf",
         videoLink: "https://youtu.be/52zzwq6ITrg",
         cguLink: "cgu/cgu_en.html"
     },
     
     fr: {
+        validate_quiz: "Valider le quiz",
+        retry_quiz: "Refaire le quiz",
+
         // Language selector
         languageLabel: "Langue",
-        
+            // >>> AJOUT: quiz.* labels
+        "quiz.title":"🎯 Codebook du Quiz",
+        "quiz.instructions":"Évaluez <strong>Fc</strong> et <strong>Fi</strong> pour chaque mini-texte.",
+        "quiz.reminder":"Rappel : si le <em>telos</em> est explicitement empêché, <strong>Fi</strong> ne peut être très bas.",
+        "quiz.qnum":"Q",
+        "quiz.telos":"Telos",
+        "quiz.explicit":"Telos explicite",
+        "quiz.textual_indices":"Indices textuels",
+        "quiz.pro_action":"Pro-action (Fc)",
+        "quiz.block":"Blocage (Fi)",
+        "quiz.fc":"Fc",
+        "quiz.fi":"Fi",
+        "quiz.item_score":"Score item",
+        "quiz.you":"Vous",
+        "quiz.expected_relation":"Relation attendue",
+        "quiz.your_relation":"Votre relation",
+        "quiz.dev_expected":"Attendu",
+        "quiz.hint_separate":"Astuce : écartez Fc et Fi d’au moins",
+        "quiz.hint_points":"points dans le bon sens.",
+        "quiz.global_score":"Score global",
         // Welcome Screen
         welcomeTitle: "🙏 Merci de participer à cette étude !",
-        welcomeIntro: "Vous allez contribuer à une recherche en <strong>analyse axiodynamique</strong> portant sur les discours institutionnels. Votre tâche consiste à évaluer <strong>12 extraits de textes</strong> (textes originaux en anglais, traduits en français pour le public francophone) provenant d'auteurs et institutions britanniques et américaines.",
+        welcomeIntro: "Vous allez contribuer à une recherche en <strong>analyse axiodynamique</strong> portant sur les discours institutionnels. Votre tâche consiste à évaluer <strong>12 extraits de textes</strong> (textes originaux en français) provenant d'auteurs et institutions françaises.",
         welcomeInstructions: "Pour chaque extrait, vous devrez évaluer deux dimensions sur une échelle de 0 à 5 étoiles :",
         
         instructionsTitle: "📋 Instructions",
+        // AJOUT APRÈS:  instructionsTitle: "..."
+        explicitTelos: "Telos explicite",          // fr
+        textCues: "Indices textuels",
+        proAction: "Pro-action (Fc)",
+        blockage: "Blocage (Fi)",
+        fcShort: "Fc :",
+        fiShort: "Fi :",
+        quizCodebookTitle: "🎯 Codebook du quiz",
+        quizReminder: "Rappel : si le telos est explicitement empêché, Fi ne doit pas être très bas.",
+
         
         fcLabel: "Fc (Force conative)",
         fcQuestion: "Dans quelle mesure le texte AFFIRME-T-IL une volonté d'action vers l'objectif affiché ?",
@@ -140,6 +204,11 @@ window.translations = {
         videoButton: "🎥 Comprendre l'Axiodynamique (Vidéo)",
         
         startButton: "Commencer l'annotation",
+        continueSession: "Reprendre votre session précédente ?",   // ← AJOUT
+
+        home: "Accueil",
+        redoQuiz: "Refaire le quiz",
+
         
         // Annotation Screen
         progress: "Progression",
@@ -195,22 +264,52 @@ window.translations = {
         researcherInfo: "Chercheur : Alan Kleden",
         
         // PDF and Video links
-        pdfLink: "docs/FR_ANNOTATION_GUIDELINES_v3.1.pdf",
+        pdfLink: "docs/FR_ANNOTATION_GUIDELINES_v3.4.pdf",
         videoLink: "https://youtu.be/cYTx5p3hu7I",
         cguLink: "cgu/cgu_fr.html"
     },
     
     es: {
+        validate_quiz: "Validar el quiz",
+        retry_quiz: "Rehacer el quiz",
         // Language selector
         languageLabel: "Idioma",
-        
+        // >>> AÑADIDO: quiz.* labels
+        "quiz.title":"🎯 Guía del Quiz",
+        "quiz.instructions":"Evalúa <strong>Fc</strong> y <strong>Fi</strong> para cada mini-texto.",
+        "quiz.reminder":"Recordatorio: si el <em>telos</em> está explícitamente bloqueado, <strong>Fi</strong> no puede ser muy bajo.",
+        "quiz.qnum":"Q",
+        "quiz.telos":"Telos",
+        "quiz.explicit":"Telos explícito",
+        "quiz.textual_indices":"Indicios textuales",
+        "quiz.pro_action":"Pro-acción (Fc)",
+        "quiz.block":"Bloqueo (Fi)",
+        "quiz.fc":"Fc",
+        "quiz.fi":"Fi",
+        "quiz.item_score":"Puntuación del ítem",
+        "quiz.you":"Usted",
+        "quiz.expected_relation":"Relación esperada",
+        "quiz.your_relation":"Su relación",
+        "quiz.dev_expected":"Esperado",
+        "quiz.hint_separate":"Consejo: separe Fc y Fi al menos",
+        "quiz.hint_points":"puntos en la dirección correcta.",
+        "quiz.global_score":"Puntuación global",
         // Welcome Screen
         welcomeTitle: "🙏 ¡Gracias por participar en este estudio!",
-        welcomeIntro: "Contribuirá a una investigación en <strong>análisis axiodinámico</strong> sobre el discurso institucional. Su tarea consiste en evaluar <strong>12 extractos de textos</strong> (textos originales en inglés, traducidos al español para el público hispanohablante) de autores e instituciones británicas y americanas.",
+        welcomeIntro: "Contribuirá a la investigación en <strong>análisis axiodinámico</strong> sobre el discurso institucional. Su tarea es evaluar <strong>12 extractos de texto</strong> (textos traducidos del francés) de varios autores e instituciones.",
         welcomeInstructions: "Para cada extracto, deberá evaluar dos dimensiones en una escala de 0 a 5 estrellas:",
         
         instructionsTitle: "📋 Instrucciones",
-        
+        // AJOUT APRÈS:  instructionsTitle: "..."
+        explicitTelos: "Telos explícito",          // es
+        textCues: "Indicios textuales",
+        proAction: "Pro-acción (Fc)",
+        blockage: "Bloqueo (Fi)",
+        fcShort: "Fc :",
+        fiShort: "Fi :",
+        quizCodebookTitle: "🎯 Manual del quiz",
+        quizReminder: "Recordatorio: si el telos está explícitamente bloqueado, Fi no debe ser muy bajo.",
+
         fcLabel: "Fc (Fuerza conativa)",
         fcQuestion: "¿En qué medida el texto AFIRMA una voluntad de acción hacia el objetivo mostrado?",
         
@@ -239,7 +338,10 @@ window.translations = {
         videoButton: "🎥 Comprender la Axiodinámica (Video)",
         
         startButton: "Comenzar la anotación",
-        
+        continueSession: "¿Reanudar su sesión anterior?",   // ← AJOUT
+        home: "Inicio",
+        redoQuiz: "Rehacer el quiz",
+
         // Annotation Screen
         progress: "Progreso",
         of: "de",
@@ -294,22 +396,52 @@ window.translations = {
         researcherInfo: "Investigador: Alan Kleden",
         
         // PDF and Video links
-        pdfLink: "docs/ES_ANNOTATION_GUIDELINES_v3.1.pdf",
+        pdfLink: "docs/ES_ANNOTATION_GUIDELINES_v3.4.pdf",
         videoLink: "https://youtu.be/fyMR9K6uQgk",
         cguLink: "cgu/cgu_es.html"
     },
     
     zh: {
+        validate_quiz: "提交测验",
+        retry_quiz: "重做测验",
         // Language selector
         languageLabel: "语言",
-        
+        // >>> 新增: quiz.* labels
+        "quiz.title":"🎯 测验指引",
+        "quiz.instructions":"为每段短文本评估 <strong>Fc</strong> 与 <strong>Fi</strong>。",
+        "quiz.reminder":"提示：若 <em>telos</em> 被明确阻止，<strong>Fi</strong> 不能很低。",
+        "quiz.qnum":"Q",
+        "quiz.telos":"Telos",
+        "quiz.explicit":"显性 telos",
+        "quiz.textual_indices":"文本线索",
+        "quiz.pro_action":"促进行为（Fc）",
+        "quiz.block":"阻断（Fi）",
+        "quiz.fc":"Fc",
+        "quiz.fi":"Fi",
+        "quiz.item_score":"题目得分",
+        "quiz.you":"你",
+        "quiz.expected_relation":"期望关系",
+        "quiz.your_relation":"你的关系",
+        "quiz.dev_expected":"期望值",
+        "quiz.hint_separate":"提示：请至少将 Fc 与 Fi 区分",
+        "quiz.hint_points":"个分值，并方向正确。",
+        "quiz.global_score":"总分",
         // Welcome Screen
         welcomeTitle: "🙏 感谢您参与本研究！",
-        welcomeIntro: "您将为关于机构话语的<strong>轴动力学分析</strong>研究做出贡献。您的任务是评估<strong>12段文本摘录</strong>（英文原文，为中文读者翻译），这些文本来自英国和美国的作者和机构。",
+        welcomeIntro: "您将为关于机构话语的<strong>轴动力学分析</strong>研究做出贡献。您的任务是评估<strong>12段文本摘录</strong>（从法语翻译的文本），这些文本来自不同的作者和机构。",
         welcomeInstructions: "对于每个摘录，您需要在0到5星的范围内评估两个维度：",
         
         instructionsTitle: "📋 说明",
-        
+        // AJOUT APRÈS:  instructionsTitle: "..."
+        explicitTelos: "明确的目的（Telos）",     // zh
+        textCues: "文本线索",
+        proAction: "前进意向（Fc）",
+        blockage: "阻碍（Fi）",
+        fcShort: "Fc ：",
+        fiShort: "Fi ：",
+        quizCodebookTitle: "🎯 测验手册",
+        quizReminder: "提示：如果目标被明确阻碍，Fi 不应很低。",
+
         fcLabel: "Fc（意动力）",
         fcQuestion: "文本在多大程度上表达了朝向显示目标的行动意愿？",
         
@@ -338,7 +470,10 @@ window.translations = {
         videoButton: "🎥 理解轴动力学（视频）",
         
         startButton: "开始注释",
-        
+        continueSession: "继续您上一次的会话？",   // ← AJOUT
+        home: "首页",
+        redoQuiz: "重新进行测验",
+
         // Annotation Screen
         progress: "进度",
         of: "共",
@@ -393,7 +528,7 @@ window.translations = {
         researcherInfo: "研究员：Alan Kleden",
         
         // PDF and Video links
-        pdfLink: "docs/ZH_ANNOTATION_GUIDELINES_v3.1.pdf",
+        pdfLink: "docs/ZH_ANNOTATION_GUIDELINES_v3.4.pdf",
         videoLink: "https://youtu.be/pBfO-YWitJg",
         cguLink: "cgu/cgu_zh.html"
     }

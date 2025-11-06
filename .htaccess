@@ -1,0 +1,28 @@
+# annotation-tool-multilingual-beta/.htaccess
+
+<IfModule mod_headers.c>
+  <Files "app.js">
+    Header set X-HTA-Test "beta-ok-1105"
+  </Files>
+</IfModule>
+
+# 1) Forcer l'UTF-8 pour tous les types servis
+AddDefaultCharset utf-8
+AddCharset utf-8 .html .htm .js .css .json .txt
+
+# 2) Types explicites avec charset
+AddType "text/html; charset=UTF-8"         .html .htm
+AddType "text/javascript; charset=UTF-8"   .js
+AddType "text/css; charset=UTF-8"          .css
+AddType "application/json; charset=UTF-8"  .json
+
+# 3) Cache: garder tes règles anti-cache pour i18n/app/quiz_gate
+<IfModule mod_headers.c>
+  <FilesMatch "^(quiz_gate|app|i18n)\.js$">
+    Header set Cache-Control "no-store, no-cache, must-revalidate, max-age=0"
+    Header set Pragma "no-cache"
+    Header set Expires "0"
+  </FilesMatch>
+  Header unset ETag
+</IfModule>
+FileETag None

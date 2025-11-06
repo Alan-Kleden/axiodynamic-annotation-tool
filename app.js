@@ -35,6 +35,43 @@ window.addEventListener('DOMContentLoaded', () => {
     // Check if there's a saved session
     checkSavedSession();
 });
+// === Home / Reset helpers (plug-in léger) ===
+
+// Revenir à l'accueil SANS relancer la reprise auto
+function returnToHome() {
+  // On mémorise que la reprise auto doit être ignorée au prochain load
+  sessionStorage.setItem('suppress_resume', '1');
+  // On revient visuellement à l'accueil sans toucher aux annotations sauvegardées
+  showScreen('welcome');
+}
+// --- Refaire le quiz (efface les drapeaux du gate) ---
+// --- Refaire le quiz (efface les drapeaux du gate) ---
+function redoQuiz() {
+  // Effacer l'état du quiz via quiz_gate
+  if (window.quizGate && typeof window.quizGate.resetQuiz === 'function') {
+    window.quizGate.resetQuiz();
+  } else {
+    // Fallback si quiz_gate pas encore chargé
+    localStorage.removeItem('quiz_passed_v1');
+    localStorage.removeItem('quiz_score_v1');
+    localStorage.removeItem('quiz_attempts_v1');
+  }
+  
+  // Empêcher la reprise auto au reload
+  sessionStorage.setItem('suppress_resume', '1');
+}
+
+// Effacer complètement la session locale (optionnel)
+function resetAllProgress() {
+  if (!confirm(t('confirmReset') || 'Effacer la session locale et recommencer ?')) return;
+  // Tes helpers existants
+  localStorage.clear();
+  sessionStorage.clear();
+  // Retour propre à l'accueil
+  showScreen('welcome');
+  // (Optionnel) petit toast
+  // showMessage(t('resetDone') || 'Données locales effacées.', 'success');
+}
 
 // Change language
 function changeLanguage(lang) {
@@ -69,36 +106,62 @@ function updateResourceLinks() {
 
 // Check if there's a saved session in localStorage
 function checkSavedSession() {
-    const savedSession = localStorage.getItem('axiodynamic_session');
-    
-    if (savedSession) {
-        const session = JSON.parse(savedSession);
-        
-        // Restore session
-        sessionId = session.sessionId;
-        currentLanguage = session.language;
-        currentIndex = session.currentIndex;
-        annotations = session.annotations;
-        startTime = new Date(session.startTime);
-        
-        // Update UI
-        document.getElementById('language-select').value = currentLanguage;
-        changeLanguage(currentLanguage);
-        
-        // Ask user if they want to continue
-        if (confirm(t('continueSession') || 'You have an unfinished session. Do you want to continue?')) {
-            // Go directly to annotation screen
-            showScreen('annotation');
-            loadExcerpt(currentIndex);
-        } else {
-            // Clear saved session
-            clearSession();
-        }
-    }
+  // 1) Ne pas proposer la reprise si l'utilisateur vient de demander "Accueil"
+  if (sessionStorage.getItem('suppress_resume') === '1') {
+    sessionStorage.removeItem('suppress_resume');
+    return; // rester sur l'écran d'accueil
+  }
+
+  // 2) Politique persistante : 'never' = ne jamais proposer la reprise
+  const policy = localStorage.getItem('resume_policy') || 'ask';
+  if (policy === 'never') return;
+
+  // 3) Charger la session sauvegardée
+  const savedSession = localStorage.getItem('axiodynamic_session');
+  if (!savedSession) return;
+
+  let session;
+  try {
+    session = JSON.parse(savedSession);
+  } catch {
+    // JSON corrompu → on nettoie
+    localStorage.removeItem('axiodynamic_session');
+    return;
+  }
+
+  // 4) Préparer le message (i18n) puis demander
+  const msg =
+    (typeof t === 'function' && t('continueSession')) ||
+    'Resume your previous session?';
+
+  if (!confirm(msg)) {
+    // Refus : on efface la session et on reste à l'accueil
+    clearSession();
+    return;
+  }
+
+  // 5) Reprise acceptée → restaurer l'état et afficher l'annotation
+  sessionId       = session.sessionId;
+  currentLanguage = session.language;
+  currentIndex    = session.currentIndex;
+  annotations     = session.annotations;
+  startTime       = new Date(session.startTime);
+
+  // UI langage
+  const sel = document.getElementById('language-select');
+  if (sel) sel.value = currentLanguage;
+  changeLanguage(currentLanguage);
+
+  // Aller directement à l'annotation
+  showScreen('annotation');
+  loadExcerpt(currentIndex);
 }
+
 
 // Start annotation
 function startAnnotation() {
+    localStorage.removeItem('resume_policy'); // repasser en mode 'ask'
+
     // Synchronize language variables
     const lang = window.currentLanguage || currentLanguage;
     
@@ -281,6 +344,10 @@ function finishAnnotation() {
     
     // Show contact screen
     showScreen('contact');
+        if (localStorage.getItem('cert_sent_v1') === '1') {
+    showCertSentUI();
+    }
+
 }
 
 // Submit contact information
@@ -303,7 +370,7 @@ async function submitContact(event) {
         showMessage(t('errorInvalidEmail'), 'error');
         return;
     }
-    
+     
     if (!consentCertificate) {
         showMessage(t('errorMissingConsent'), 'error');
         return;
@@ -348,30 +415,41 @@ async function submitContact(event) {
             body: JSON.stringify(annotationsData)
         });
         
-        // Send certificate email
-        try {
-            await fetch('api/send_certificate.php', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({
-                    name: name,
-                    email: email,
-                    affiliation: affiliation,
-                    session_id: sessionId,
-                    language: currentLanguage
-                })
-            });
-            console.log('Certificate sent');
-        } catch (certError) {
-            console.error('Certificate sending failed:', certError);
-            // Don't block the user flow if certificate fails
+    try {
+        const resp = await fetch('api/send_certificate.php', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+                name: name,
+                email: email,
+                affiliation: affiliation,
+                session_id: sessionId,
+                language: currentLanguage
+            })
+        });
+
+        // Even if resp is not 200, we continue UI but log it.
+        if (!resp.ok) console.warn('send_certificate.php returned', resp.status);
+
+        // Mark certificate as sent and switch UI now
+        localStorage.setItem('cert_sent_v1', '1');
+        showCertSentUI();                 // hides form, shows green success block
+        if (typeof showMessage === 'function') {
+            showMessage(t('successMessage'), 'success');
         }
+
+        console.log('Certificate sent');
+    } catch (certError) {
+        console.error('Certificate sending failed:', certError);
+        // Don't block the user flow if certificate fails
+    }
         
         // Success
         showMessage(t('successMessage'), 'success');
         
         // Clear localStorage
-        clearSession();
+        localStorage.clear();
+        sessionStorage.clear();
         
         // Hide form
         document.getElementById('contact-form').style.display = 'none';
@@ -396,10 +474,23 @@ function showMessage(message, type) {
     container.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
 }
 
-// Validate email
-function validateEmail(email) {
-    const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    return re.test(email);
-}
+    // Validate email
+    function validateEmail(email) {
+        const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        return re.test(email);
+    }
+    function showCertSentUI() {
+    const block = document.getElementById('cert-block');
+    const sent  = document.getElementById('cert-sent');
+        if (block) block.style.display = 'none';
+        if (sent) {
+            // garantit la langue active
+            if (typeof t === 'function') {
+            const span = sent.querySelector('[data-i18n="successMessage"]');
+            if (span) span.textContent = t('successMessage');
+            }
+            sent.style.display = 'block';
+        }
+    }
 
 console.log('App initialized');

@@ -1,0 +1,7 @@
+# Premier envoi (création /data + ajout du JSON)
+& "G:\Mon Drive\DeFi-Scripts\annotation-tool-multilingual\tools\Commit-Codebook.ps1" `
+  -Message "Add codebook_v1.json (starter pack 16 items)"
+
+# Révisions ultérieures (vous éditez le JSON, puis…)
+& "G:\Mon Drive\DeFi-Scripts\annotation-tool-multilingual\tools\Commit-Codebook.ps1" `
+  -Message "Revise codebook_v1: ajustements Fc/Fi et rationales"

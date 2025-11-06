@@ -32,5 +32,11 @@ $missing  | ForEach-Object { [pscustomobject]@{Missing=$_} } | Export-Csv $missC
 
 $line1 = "INDEX REF COUNT: {0} | MISSING: {1}" -f ($internal | Measure-Object | Select -Expand Count), ($missing | Measure-Object | Select -Expand Count)
 $line1 | Set-Content -Encoding UTF8 $sumTxt
+# CI fail si des assets manquent
+if (Test-Path $missCsv) {
+  $miss = Import-Csv $missCsv
+  if (@($miss).Count -gt 0) { exit 1 }
+}
+
 Write-Host $line1
 Write-Host "Reports in: $outDir"

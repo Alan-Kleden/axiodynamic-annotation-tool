@@ -30,9 +30,8 @@ window.translations = {
         
         // Welcome Screen
         welcomeTitle: "🙏 Thank you for participating in this study!",
-        welcomeIntro: "You will contribute to research in <strong>axiodynamic analysis</strong> on institutional discourse. Your task is to evaluate <strong>12 text excerpts</strong> (translated texts) from various authors and institutions.",
+        welcomeIntro: "You will contribute to research in <strong>axiodynamic analysis</strong> on <strong>articles from engaged media</strong>. Your task is to evaluate <strong>12 text excerpts</strong> (original French texts) from francophone media and authors.",
         welcomeInstructions: "For each excerpt, you will need to evaluate two dimensions on a scale of 0 to 5 stars:",
-        
         instructionsTitle: "📋 Instructions",
         explicitTelos: "Explicit telos",           // en
         textCues: "Textual cues",
@@ -161,7 +160,7 @@ window.translations = {
         "quiz.global_score":"Score global",
         // Welcome Screen
         welcomeTitle: "🙏 Merci de participer à cette étude !",
-        welcomeIntro: "Vous allez contribuer à une recherche en <strong>analyse axiodynamique</strong> portant sur les discours institutionnels. Votre tâche consiste à évaluer <strong>12 extraits de textes</strong> (textes originaux en français) provenant d'auteurs et institutions françaises.",
+        welcomeIntro: "Vous allez contribuer à une recherche en <strong>analyse axiodynamique</strong> portant sur des <strong>articles de médias engagés</strong>. Votre tâche consiste à évaluer <strong>12 extraits de textes</strong> (textes originaux en français) provenant de médias et auteurs francophones.",
         welcomeInstructions: "Pour chaque extrait, vous devrez évaluer deux dimensions sur une échelle de 0 à 5 étoiles :",
         
         instructionsTitle: "📋 Instructions",
@@ -296,7 +295,7 @@ window.translations = {
         "quiz.global_score":"Puntuación global",
         // Welcome Screen
         welcomeTitle: "🙏 ¡Gracias por participar en este estudio!",
-        welcomeIntro: "Contribuirá a la investigación en <strong>análisis axiodinámico</strong> sobre el discurso institucional. Su tarea es evaluar <strong>12 extractos de texto</strong> (textos traducidos del francés) de varios autores e instituciones.",
+        welcomeIntro: "Contribuirá a la investigación en <strong>análisis axiodinámico</strong> sobre <strong>artículos de medios comprometidos</strong>. Su tarea es evaluar <strong>12 extractos de texto</strong> (textos originales en francés) provenientes de medios y autores francófonos.",
         welcomeInstructions: "Para cada extracto, deberá evaluar dos dimensiones en una escala de 0 a 5 estrellas:",
         
         instructionsTitle: "📋 Instrucciones",
@@ -428,9 +427,8 @@ window.translations = {
         "quiz.global_score":"总分",
         // Welcome Screen
         welcomeTitle: "🙏 感谢您参与本研究！",
-        welcomeIntro: "您将为关于机构话语的<strong>轴动力学分析</strong>研究做出贡献。您的任务是评估<strong>12段文本摘录</strong>（从法语翻译的文本），这些文本来自不同的作者和机构。",
+        welcomeIntro: "您将参与<strong>轴动力学分析</strong>研究，材料为<strong>立场鲜明的媒体文章</strong>。您的任务是评估<strong>12段文本摘录</strong>（原始法语文本），来源于法语媒体与作者。",
         welcomeInstructions: "对于每个摘录，您需要在0到5星的范围内评估两个维度：",
-        
         instructionsTitle: "📋 说明",
         // AJOUT APRÈS:  instructionsTitle: "..."
         explicitTelos: "明确的目的（Telos）",     // zh
